@@ -108,13 +108,6 @@ La passerelle est elle-même enregistrée dans l'annuaire (`GATEWAY-SERVICE`). L
 | 6 | GET /operations | aucun | 200 | tableau JSON des opérations 1, 2 et 3 | | | | `captures/d4-6.png` |
 | 7 | GET /operations/2 | aucun | 200 | `{"id":2,"operateur":"produit","a":6,"b":7,"resultat":42.0}` | | | | `captures/d4-7.png` |
 
-**Relevé pour la question D.1 (six fois la requête 1).**
-
-| Envoi | 1 | 2 | 3 | 4 | 5 | 6 |
-|---|---|---|---|---|---|---|
-| Instance (trace) | | | | | | |
-
-Les requêtes 1, 2 et 3 doivent se répartir en alternance entre `[calcul-service:8081]` et `[calcul-service:8083]`. Les erreurs 400 et 5 ne consomment pas d'identifiant.
 
 ### 2.2 E.2 : passerelle, routes statiques YAML (`http://localhost:8888/swagger-ui.html`)
 
@@ -148,12 +141,17 @@ L'identifiant attendu en 4 suppose les identifiants 1 à 4 déjà créés (D.4 e
 
 ## 3. Captures d'écran
 
-- [ ] **Tableau de bord Eureka** (`http://localhost:8761`) : `CALCUL-SERVICE` (2 instances : 8081 et 8083), `HISTORIQUE-SERVICE`, `GATEWAY-SERVICE` → `captures/eureka.png`
-- [ ] **`http://localhost:8888/actuator/gateway/routes`** en configuration dynamique → `captures/routes-dynamiques.png`
-- [ ] **Swagger UI de la passerelle, configuration statique (E.2)** : liste *Select a definition* et zone *Servers* (`http://localhost:8888`) → `captures/swagger-statique.png`
-- [ ] **Swagger UI de la passerelle, configuration dynamique (E.5)** : liste *Select a definition* et zone *Servers* (`http://localhost:8888/calcul-service`) → `captures/swagger-dynamique.png`
-- [ ] **Cinq consoles** (ou fenêtre *Services* d'IntelliJ) avec les lignes `started on port 8761`, `8081`, `8083`, `8082` et `8888` → `captures/consoles.png`
-- [ ] Captures de la zone *Responses* des tableaux 2.1, 2.2 et 2.3 (noms `d4-*.png`, `e2-*.png`, `e5-*.png`)
+![](images/111.png)
+**Tableau de bord Eureka** (`http://localhost:8761`) : `CALCUL-SERVICE` (2 instances : 8081 et 8083), `HISTORIQUE-SERVICE`, `GATEWAY-SERVICE` → `captures/eureka.png`
+
+![](images/222.png)
+**`http://localhost:8888/actuator/gateway/routes`** en configuration dynamique → `captures/routes-dynamiques.png`
+
+![](images/333.png)
+**Swagger UI de la passerelle, configuration dynamique (E.5)** : liste *Select a definition* et zone *Servers* (`http://localhost:8888/calcul-service`) → `captures/swagger-dynamique.png`
+
+![](images/444.png)
+**Cinq consoles** (ou fenêtre *Services* d'IntelliJ) avec les lignes `started on port 8761`, `8081`, `8083`, `8082` et `8888` → `captures/consoles.png`
 
 ---
 
